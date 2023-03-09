@@ -1,3 +1,5 @@
-.Appl{
-  font-size: 2em;
+.Appl {
+  font-size: 1em;
+  display: "flex";
+  text-align: center;
 }
