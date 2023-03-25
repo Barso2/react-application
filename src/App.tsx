@@ -1,19 +1,15 @@
-import React from 'react';
+
+import React, { ReactNode } from 'react';
 
 import './App.css';
-import { CounterMultiply } from './components/CounterMultiply';
-import { CounterSquare } from './components/CounterSquare';
-import { CounterUpdater } from './components/CounterUpdater';
-import { Timer } from './components/Timer';
+import { Life } from './components/Life';
+
 
 function App() {
-  
-  return <div style={{display: 'flex', alignItems: 'center',
-   flexDirection: 'column'}}>
-    <CounterUpdater operand={10}/>
-    <CounterMultiply factor={2}/>
-    <CounterSquare/>
-  </div>
+    
+ return <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+      <Life />
+ </div>
 }
 
 export default App;
