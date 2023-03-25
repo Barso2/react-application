@@ -1,24 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { Alert } from "./Alert";
 type Props = {
-    submitFn: (value: string) => string;
+    submitFn: (value: string)=>string;
     placeHolder: string;
     buttonName?: string;
 }
-export const Input: React.FC<Props> = ({ submitFn, placeHolder, buttonName }) => {
-    const id = useRef<string>('');
-    const inputElement = useRef<HTMLInputElement | null>();
-    let message:string = '';
-    useEffect(() => {
-        id.current = Math.random().toString();
-        inputElement.current = document.getElementById(id.current) as HTMLInputElement
-    },[]);
-    function inputProcess(){
-        const message = submitFn(inputElement.current!.value)
+export const Input: React.FC<Props> = ({submitFn, placeHolder, buttonName}) => {
+    const inputElement = useRef<HTMLInputElement>(null);
+    const [message, setMessage] = useState<string>('')
+    
+    function inputProcess() {
+        const tempMessage = submitFn(inputElement.current!.value);
+        if(!tempMessage) {
+            inputElement.current!.value=''
+        }
+       setMessage(tempMessage);
     }
     return <div>
-        <input type="text" placeholder={placeHolder} id={id.current} />
+        <input type="text" placeholder={placeHolder} ref={inputElement}/>
         <button onClick={inputProcess}>{buttonName || "GO"}</button>
-        {message && <Alert>}
+        {message && <Alert message={message}/>}
     </div>
+
 }
