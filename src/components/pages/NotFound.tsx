@@ -1,3 +1,3 @@
 export const NotFound: React.FC = () => {
-    return <h2>404 Not Found</h2>
+    return <h1>404 Not Found</h1>
 }
