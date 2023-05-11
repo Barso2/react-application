@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 import { AUTH_USER_ITEM } from '../config/auth-service-config';
-const initialState: { authUser: string } = {
+const initialState: {authUser: string} = {
     authUser: localStorage.getItem(AUTH_USER_ITEM) || ''
 }
 const authSlice = createSlice({
